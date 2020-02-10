@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        node_version: 10.18
+    - name: yarn, yarn build
+      run: |
+        yarn
+        yarn build
+        yarn publish
+        
