@@ -6,6 +6,9 @@
   "repository": "git@github.com:davidpett/figma-theme.git",
   "author": "David Pett <me@davidpett.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "yarn tsc"
+  },
   "devDependencies": {
     "@types/node": "^13.7.0",
     "@types/yargs": "^15.0.3",
