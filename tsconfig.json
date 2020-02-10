@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "allowJs": false,
+    "declaration": false,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "isolatedModules": false,
+    "lib": ["ESNext", "dom"],
+    "moduleResolution": "node",
+    "noEmit": false,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "skipLibCheck": true,
+    "target": "es5",
+    "module": "commonjs"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
