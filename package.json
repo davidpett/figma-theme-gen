@@ -7,7 +7,7 @@
   "author": "David Pett <me@davidpett.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn tsc"
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/node": "^13.7.0",
