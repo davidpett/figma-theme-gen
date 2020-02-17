@@ -2,7 +2,10 @@
   "name": "figma-theme",
   "version": "1.0.0",
   "description": "generate theme from figma file",
-  "main": "dist/index.js",
+  "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "repository": "git@github.com:davidpett/figma-theme.git",
   "author": "David Pett <me@davidpett.com>",
   "license": "MIT",

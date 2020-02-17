@@ -25,8 +25,8 @@ const parseTypography = (items: any[]): [string, any] => {
               ? 'lowercase'
               : style.textCase === 'TITLE'
               ? 'capitalize'
-              : 'none',
-        },
+              : 'none'
+        }
       }
     })
     .reduce((result, item) => {
@@ -49,9 +49,9 @@ const parseTypography = (items: any[]): [string, any] => {
         semibold: { fontWeight: '600' },
         bold: { fontWeight: '800' },
         heavy: { fontWeight: '900' },
-        ...styles,
-      },
-    },
+        ...styles
+      }
+    }
   ]
 }
 

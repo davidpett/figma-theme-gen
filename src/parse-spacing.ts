@@ -1,17 +1,26 @@
 import chalk from 'chalk'
 
-const baseUnit = 8
-const sizes = {
-  none: 0,
-  xs: 0.5,
-  s: 1,
-  m: 2,
-  l: 3,
-  xl: 4,
+type ISpacingPropOption = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl'
+type SpaceMap = { [key in ISpacingPropOption]: number }
+
+interface IThemeSpacing {
+  baseUnit: number
+  borderRadius: SpaceMap
+  margin: SpaceMap
+  padding: SpaceMap
 }
 
-const parseSpacing = (): [string, any] => {
+const parseSpacing = (s?: Partial<IThemeSpacing>): [string, { spacing: IThemeSpacing }] => {
   console.log(chalk.bgBlue.black.bold('FIGMA -'), 'parseSpacing')
+  const baseUnit = s?.baseUnit || 8
+  const defaultSizes: SpaceMap = {
+    none: 0,
+    xs: baseUnit * 0.5,
+    s: baseUnit * 1,
+    m: baseUnit * 2,
+    l: baseUnit * 3,
+    xl: baseUnit * 4
+  }
 
   return [
     `export type ISpacingPropOption = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl'
@@ -26,11 +35,11 @@ const parseSpacing = (): [string, any] => {
     {
       spacing: {
         baseUnit,
-        margin: sizes,
-        padding: sizes,
-        borderRadius: sizes,
-      },
-    },
+        margin: { ...defaultSizes, ...(s?.margin || {}) },
+        padding: { ...defaultSizes, ...(s?.padding || {}) },
+        borderRadius: { ...defaultSizes, ...(s?.borderRadius || {}) }
+      }
+    }
   ]
 }
 

@@ -22,12 +22,12 @@ const parseStyles = (fileStyles: any[]) => {
   const colorStyles = fileStyles.filter(({ styleType }) => styleType === 'FILL')
   const [typographyTypes, typographyValues] = parseTypography(textStyles)
   const [colorTypes, colorValues] = parseColors(colorStyles)
-  const [spacingTypes, spacingValues] = parseSpacing()
+  const [spacingTypes, spacingValues] = parseSpacing(figmaConfig.spacing)
 
   const styles = {
     ...typographyValues,
     ...colorValues,
-    ...spacingValues,
+    ...spacingValues
   }
 
   writeFileSync(
