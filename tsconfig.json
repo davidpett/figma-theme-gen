@@ -3,7 +3,7 @@
     "baseUrl": "./src",
     "outDir": "./dist",
     "allowJs": false,
-    "declaration": false,
+    "declaration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
