@@ -9,9 +9,6 @@
   "repository": "git@github.com:davidpett/figma-theme.git",
   "author": "David Pett <me@davidpett.com>",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "build": "tsc"
   },
