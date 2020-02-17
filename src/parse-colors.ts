@@ -16,7 +16,7 @@ const parseColorScheme = (items: any[]): [{ [x: string]: string }, string[]] => 
       const colorName = camelCase(name.split('/')[1])
       themeColorNames.push(`'${colorName}'`)
       return {
-        [colorName]: rgbToHex(color.r * 255, color.g * 255, color.b * 255),
+        [colorName]: rgbToHex(color.r * 255, color.g * 255, color.b * 255)
       }
     })
     .reduce((prev, cur) => ({ ...prev, ...cur }))
@@ -44,9 +44,9 @@ export interface IColors {
       colorSchemes: {
         light,
         dark,
-        'no-preference': light,
-      },
-    },
+        'no-preference': light
+      }
+    }
   ]
 }
 

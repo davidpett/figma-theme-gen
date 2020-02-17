@@ -9,7 +9,7 @@
   "bin": {
     "figma-theme-gen": "./dist/index.js"
   },
-  "repository": "https://github.com/davidpett/figma-theme",
+  "repository": "https://github.com/davidpett/figma-theme-gen",
   "author": "David Pett <me@davidpett.com>",
   "license": "MIT",
   "scripts": {
