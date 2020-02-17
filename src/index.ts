@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import chalk from 'chalk'
 import * as Figma from 'figma-js'
 import { processFile } from 'figma-transformer'
