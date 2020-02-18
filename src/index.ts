@@ -18,7 +18,7 @@ const figmaConfig = JSON.parse(readFileSync(resolve(config as string), 'utf8'))
 const accessToken = argv.accessToken || figmaConfig.accessToken
 const outputFile = argv.outputFile || figmaConfig.outputFile
 const fileId = argv.fileId || figmaConfig.fileId
-const format: OutputFormat = argv.format ? (argv.format as OutputFormat) : 'native'
+const format: OutputFormat = argv.format ? (argv.format as OutputFormat) : figmaConfig.format || 'native'
 
 const client = Figma.Client({ personalAccessToken: accessToken })
 
