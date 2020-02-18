@@ -33,6 +33,7 @@ const parseColors = (items: any[], format?: OutputFormat): [string, any] => {
 
   const theme = `export type IThemeColor = ${colorNames.join('|')}
 export type IPalette<T extends string> = { [key in T]: string }
+export type ColorSchemeName = 'light' | 'dark' | 'no-preference'
 export interface IColors {
   dark: IPalette<IThemeColor>
   light: IPalette<IThemeColor>
