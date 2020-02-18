@@ -1,6 +1,6 @@
 {
   "name": "figma-theme-gen",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "generate theme from figma file",
   "main": "dist/index.js",
   "files": [
