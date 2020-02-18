@@ -1,5 +1,6 @@
 import chalk from 'chalk'
 import { camelCase } from './utils'
+import { OutputFormat } from 'index'
 
 const rgbToHex = (r: number, g: number, b: number) =>
   '#' +
@@ -22,8 +23,8 @@ const parseColorScheme = (items: any[]): [{ [x: string]: string }, string[]] => 
     .reduce((prev, cur) => ({ ...prev, ...cur }))
   return [themeColorValues, themeColorNames]
 }
-const parseColors = (items: any[]): [string, any] => {
-  console.log(chalk.bgBlue.black.bold('FIGMA -'), 'parseColors')
+const parseColors = (items: any[], format?: OutputFormat): [string, any] => {
+  console.log(chalk.bgBlue.black.bold('FIGMA -'), 'parseColors', format)
 
   const lightColors = items.filter(({ name }) => name.split('/')[0] === 'light')
   const darkColors = items.filter(({ name }) => name.split('/')[0] === 'dark')

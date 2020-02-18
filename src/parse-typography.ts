@@ -1,23 +1,27 @@
 import chalk from 'chalk'
 import { camelCase } from './utils'
+import { OutputFormat } from 'index'
 
-const parseTypography = (items: any[]): [string, any] => {
-  console.log(chalk.bgBlue.black.bold('FIGMA -'), 'parseTypography')
+const parseTypography = (items: any[], format?: OutputFormat): [string, any] => {
+  console.log(chalk.bgBlue.black.bold('FIGMA -'), 'parseTypography', format)
 
   const textVariants: string[] = []
   const styles = items
     .map(({ name, typeStyles: style }) => {
+      const isSystemFont = ['Roboto', 'SF Pro Text', 'SF Pro Display'].includes(style.fontFamily)
+      const systemFonts =
+        format === 'native'
+          ? 'System'
+          : 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
       const variantName = camelCase(name)
       textVariants.push(`'${variantName}'`)
       return {
         [variantName]: {
-          fontFamily: ['Roboto', 'SF Pro Text', 'SF Pro Display'].includes(style.fontFamily)
-            ? 'System'
-            : style.fontFamily,
+          fontFamily: isSystemFont ? systemFonts : style.fontFamily,
           fontSize: style.fontSize,
           fontWeight: `${style.fontWeight}`,
           letterSpacing: style.letterSpacing,
-          lineHeight: style.lineHeightPx,
+          lineHeight: format === 'native' ? style.lineHeightPx : style.lineHeightPx / style.fontSize,
           textTransform:
             style.textCase === 'UPPER'
               ? 'uppercase'

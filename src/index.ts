@@ -11,20 +11,23 @@ import parseColors from './parse-colors'
 import parseSpacing from './parse-spacing'
 import parseTypography from './parse-typography'
 
+export type OutputFormat = 'web' | 'native'
+
 const { config = 'figma.json' } = argv
 const figmaConfig = JSON.parse(readFileSync(resolve(config as string), 'utf8'))
 const accessToken = argv.accessToken || figmaConfig.accessToken
 const outputFile = argv.outputFile || figmaConfig.outputFile
 const fileId = argv.fileId || figmaConfig.fileId
+const format: OutputFormat = argv.format ? (argv.format as OutputFormat) : 'native'
 
 const client = Figma.Client({ personalAccessToken: accessToken })
 
 const parseStyles = (fileStyles: any[]) => {
   const textStyles = fileStyles.filter(({ styleType }) => styleType === 'TEXT')
   const colorStyles = fileStyles.filter(({ styleType }) => styleType === 'FILL')
-  const [typographyTypes, typographyValues] = parseTypography(textStyles)
-  const [colorTypes, colorValues] = parseColors(colorStyles)
-  const [spacingTypes, spacingValues] = parseSpacing(figmaConfig.spacing)
+  const [typographyTypes, typographyValues] = parseTypography(textStyles, format)
+  const [colorTypes, colorValues] = parseColors(colorStyles, format)
+  const [spacingTypes, spacingValues] = parseSpacing(figmaConfig.spacing, format)
 
   const styles = {
     ...typographyValues,

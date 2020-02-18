@@ -1,4 +1,5 @@
 import chalk from 'chalk'
+import { OutputFormat } from 'index'
 
 type ISpacingPropOption = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl'
 type SpaceMap = { [key in ISpacingPropOption]: number }
@@ -10,8 +11,8 @@ interface IThemeSpacing {
   padding: SpaceMap
 }
 
-const parseSpacing = (s?: Partial<IThemeSpacing>): [string, { spacing: IThemeSpacing }] => {
-  console.log(chalk.bgBlue.black.bold('FIGMA -'), 'parseSpacing')
+const parseSpacing = (s?: Partial<IThemeSpacing>, format?: OutputFormat): [string, { spacing: IThemeSpacing }] => {
+  console.log(chalk.bgBlue.black.bold('FIGMA -'), 'parseSpacing', format)
   const baseUnit = s?.baseUnit || 8
   const defaultSizes: SpaceMap = {
     none: 0,
